@@ -1,31 +1,30 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRobots } from './redux/actions/robotAction';
-
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { RobotsList, Filter } from './components';
 
 function App() {
-  let dispatch = useDispatch();
-  const { robots } = useSelector((state) => state.data);
-
-  useEffect(() => {
-    dispatch(getRobots())
-  }, []);
-
-
   return (
     <div className="App">
-      <h1>Robot Market</h1>
-      {robots && robots.length && robots.map((robot) => {
-        return (
-          <div>
-            {robot.name}
-            {robot.image}
-            {robot.price}
-            {robot.stock}
-            {robot.material}
-          </div>
-        )
-      })}
+      <Container fluid>
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={2}>
+            <h1>Robot Market</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {/* Filter */}
+            <Filter />
+          </Col>
+          <Col xs={12} sm={12} md={12} lg={8}>
+            <RobotsList />
+          </Col>
+          <Col xs={12} sm={12} md={12} lg={2}>
+            {/* Cart design */}
+            <h5>Cart</h5>
+          </Col>
+        </Row>
+      </Container>
       {/*Add your code here*/}
     </div>
   );
