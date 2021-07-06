@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { RobotsList, Filter } from './components';
+import { RobotsList } from './components/RobotsList';
+import { Filter } from './components/Filter';
 
 function App() {
   return (
     <div className="App">
       <Container fluid>
         <Row>
-          <Col xs={12} sm={12} md={12} lg={2}>
+          <Col xs={12} sm={12} md={12}>
             <h1>Robot Market</h1>
           </Col>
         </Row>

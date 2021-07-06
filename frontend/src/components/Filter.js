@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Card, ListGroup, Form, Button } from 'react-bootstrap';
 
 export const Filter = () => {
-    const { robots } = useSelector((state) => state.data);
+    const robots = useSelector((state) => state.data.robots);
 
-    const filterMaterial = () => {
-      return [...new Set(robots.map(item => item.material))];
-    }
+    const materials = [...new Set(robots.map(item => item.material))];
+
+    useEffect(() => {
+        
+    }, []);
 
     return (
-        <div>
-            
-        </div>
+        <Card
+            bg="light"
+            text="dark"
+            className="mb-2"
+        >
+            <Card.Header>Filter</Card.Header>
+            <Card.Body>
+                <Card.Title>Materials</Card.Title>
+                {materials.map((item, index) => {
+                    return (
+                        <Form.Check
+                            type="radio"
+                            label={item}
+                            name="formHorizontalRadios"
+                            key={index}
+                        />
+                    )
+                })}
+            </Card.Body>
+        </Card>
     )
 }

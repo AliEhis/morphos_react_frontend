@@ -27,9 +27,9 @@ export const RobotsList = () => {
 
     return (
         <Row>
-            {robots && robots.length && robots.map((robot) => {
+            {robots && robots.map((robot, index) => {
                 return (
-                    <Col xs={12} sm={6} md={4} lg={4}>
+                    <Col xs={12} sm={6} md={4} lg={4} key={index}>
                         <Card className="mb-3">
                             <Card.Img variant="top" src={robot.image} />
                             <Card.Body>
