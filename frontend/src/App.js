@@ -8,19 +8,19 @@ function App() {
     <div className="App">
       <Container fluid>
         <Row>
-          <Col xs={12} sm={12} md={12}>
+          <Col>
             <h1>Robot Market</h1>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col xs={12} sm={12} md={12} lg={2}>
             {/* Filter */}
             <Filter />
           </Col>
-          <Col xs={12} sm={12} md={12} lg={8}>
+          <Col xs={12} sm={12} md={12} lg={7}>
             <RobotsList />
           </Col>
-          <Col xs={12} sm={12} md={12} lg={2}>
+          <Col xs={12} sm={12} md={12} lg={3}>
             {/* Cart design */}
             <h5>Cart</h5>
           </Col>
