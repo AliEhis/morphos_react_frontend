@@ -14,6 +14,10 @@ export const Cart = () => {
         return cartItems.reduce((acc, item) => acc + Number(item.price) * Number(item.stock), 0)
     }
 
+    const totalNumber = () => {
+        return cartItems.length
+    }
+
     useEffect(() => {
 
     }, []);
@@ -51,11 +55,21 @@ export const Cart = () => {
                                     <Row className="justify-content-md-around">
                                         <Col>
                                             <p>
-                                                <strong>Grand Total:</strong>
+                                                <strong>Total number:</strong>
                                             </p>
                                         </Col>
                                         <Col>
-                                            <p className="text-right">&#3647;{totalPrice()}</p>
+                                            <p className="text-right">{totalNumber()}</p>
+                                        </Col>
+                                    </Row>
+                                    <Row className="justify-content-md-around">
+                                        <Col>
+                                            <p>
+                                                <strong>Total Price:</strong>
+                                            </p>
+                                        </Col>
+                                        <Col>
+                                            <p className="text-right">&#3647;{formatCurrency(totalPrice().toFixed(2))}</p>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
