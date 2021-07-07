@@ -20,3 +20,11 @@ export const getRobots = () => async (dispatch) => {
     // send error message to sentry
   }
 }
+
+export const addToCart = (item) => async (dispatch) => {
+  dispatch({ type: types.ADD_ITEM_TO_CART, item });
+}
+
+export const reduceRobotStock = (id) => async (dispatch) => {
+  dispatch({ type: types.REDUCE_ROBOT_STOCK, itemId: id })
+}

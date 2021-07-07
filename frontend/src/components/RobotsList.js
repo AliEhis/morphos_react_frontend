@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRobots } from '../redux/actions/robotAction';
-import { addToCart } from '../redux/actions/cartAction';
+import { getRobots, addToCart, reduceRobotStock } from '../redux/actions/robotAction';
 import {
     Row,
     Col,
@@ -27,8 +26,8 @@ export const RobotsList = () => {
 
     const addItemToCart = (item) => {
         // dispatch the add to cart functionality
-        console.log(item)
         dispatch(addToCart(item))
+        dispatch(reduceRobotStock(item.id))
     }
 
     useEffect(() => {
@@ -48,11 +47,11 @@ export const RobotsList = () => {
                                 </Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">&#3647; {formatCurrency(robot.price)}</Card.Subtitle>
                                 <Card.Text>
-                                    <Row>
+                                    <Row className="justify-content-between">
                                         <Col sm={12} md={6}>
                                             {robot.material}
                                         </Col>
-                                        <Col sm={12} md={{ span: 4, offset: 2 }}>
+                                        <Col sm={12} md={6} className="text-right">
                                             Qty: {robot.stock}
                                         </Col>
                                     </Row>
