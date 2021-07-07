@@ -4,6 +4,7 @@ const RobotLists = (robots) => ({
   type: types.ROBOTS_LIST,
   payload: robots
 })
+
 export const getRobots = () => async (dispatch) => {
   dispatch({ type: types.LOAD_ROBOTS });
   try {

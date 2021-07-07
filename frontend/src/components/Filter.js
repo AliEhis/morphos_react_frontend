@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Card, ListGroup, Form, Button } from 'react-bootstrap';
+import {useSelector } from 'react-redux';
+import { Card, Form } from 'react-bootstrap';
 
 export const Filter = () => {
     const robots = useSelector((state) => state.data.robots);

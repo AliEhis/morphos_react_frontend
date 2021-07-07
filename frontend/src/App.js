@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { RobotsList } from './components/RobotsList';
 import { Filter } from './components/Filter';
+import { Cart } from './components/Cart';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Container fluid>
         <Row>
           <Col>
-            <h1>Robot Market</h1>
+            <h1 className="mb-5 mt-5 text-center">Robot Market</h1>
           </Col>
         </Row>
         <Row>
@@ -22,11 +23,10 @@ function App() {
           </Col>
           <Col xs={12} sm={12} md={12} lg={3}>
             {/* Cart design */}
-            <h5>Cart</h5>
+            <Cart />
           </Col>
         </Row>
       </Container>
-      {/*Add your code here*/}
     </div>
   );
 }

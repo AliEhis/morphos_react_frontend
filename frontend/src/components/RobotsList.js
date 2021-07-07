@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRobots } from '../redux/actions/robotAction';
+import { addToCart } from '../redux/actions/cartAction';
 import {
     Row,
     Col,
@@ -14,11 +15,20 @@ export const RobotsList = () => {
     const { robots } = useSelector((state) => state.data);
 
     const sanitizeDate = (data) => {
+        // remove the extra date character, and reverse the string
+        // by splitting into an array, reversing and joining
         return data.substr(0, 10).split('-').reverse().join('-');
     }
 
     const checkStock = (stock) => {
+        // confirm if stock exist
         return stock <= 0
+    }
+
+    const addItemToCart = (item) => {
+        // dispatch the add to cart functionality
+        console.log(item)
+        dispatch(addToCart(item))
     }
 
     useEffect(() => {
@@ -51,7 +61,7 @@ export const RobotsList = () => {
                                     checkStock(robot.stock) ? (
                                         <Button variant="warning" block disabled>Out of stock</Button>
                                     ) : (
-                                        <Button variant="primary" block>Add to Cart</Button>
+                                        <Button variant="primary" block onClick={() => addItemToCart(robot)}>Add to Cart</Button>
                                     )
                                 }
                             </Card.Body>
