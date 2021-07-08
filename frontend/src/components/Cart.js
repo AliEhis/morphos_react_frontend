@@ -11,7 +11,8 @@ export const Cart = () => {
     }
 
     const totalPrice = () => {
-        return cartItems.reduce((acc, item) => acc + Number(item.price) * Number(item.stock), 0)
+        // calculates the total price of all items in the cart 
+        return cartItems.reduce((result, item) => result + Number(item.price) * Number(item.stock), 0)
     }
 
     const totalNumber = () => {

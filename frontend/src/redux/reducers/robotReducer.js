@@ -1,4 +1,5 @@
 import { ROBOTS_LIST, LOAD_ROBOTS, ADD_ITEM_TO_CART, REDUCE_ROBOT_STOCK } from "../actions/actionTypes";
+import { verifyItemInCart, reduceRobotStock } from '../../utilityFunction'
 
 const initialState = {
   isLoading: false,
@@ -33,24 +34,3 @@ export const robotReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-const verifyItemInCart = (cartItems, payload) => {
-  const { id, name, price } = payload
-  let itemExist = cartItems.find(item => item.id === id)
-  if (itemExist) {
-    itemExist.stock = itemExist.stock > 0 ? itemExist.stock + 1 : 1
-  } else {
-    if (cartItems.length < 5) {
-      cartItems = [...cartItems, { id, name, price, stock: 1 }]
-    } else {
-      alert("You can only add 5 robots")
-    }
-  }
-  return cartItems
-}
-
-const reduceRobotStock = (robots, itemId) => {
-  const robotExist = robots.find(robot => robot.id == itemId)
-  robotExist.stock = robotExist.stock == 0 ? 0 : robotExist.stock - 1
-  return robots
-}

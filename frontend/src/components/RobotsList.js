@@ -58,7 +58,7 @@ export const RobotsList = () => {
                                 </Card.Text>
                                 {
                                     checkStock(robot.stock) ? (
-                                        <Button variant="warning" block disabled>Out of stock</Button>
+                                        <Button variant="warning" block disabled style={{ cursor: "not-allowed" }}>Out of stock</Button>
                                     ) : (
                                         <Button variant="primary" block onClick={() => addItemToCart(robot)}>Add to Cart</Button>
                                     )
