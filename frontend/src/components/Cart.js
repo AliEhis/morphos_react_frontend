@@ -42,7 +42,7 @@ export const Cart = () => {
                                                 <Col>
                                                     <p>
                                                         { item.name } <br></br>
-                                                        <small>{item.stock} x {item.price}</small>
+                                                        <small>{item.stock} x &#3647;{item.price}</small>
                                                     </p>
                                                 </Col>
                                                 <Col>

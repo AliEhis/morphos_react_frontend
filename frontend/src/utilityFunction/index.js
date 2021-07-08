@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 export const formatCurrency = (amount) => {
     return amount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
@@ -11,7 +13,11 @@ export const verifyItemInCart = (cartItems, item) => {
         if (cartItems.length < 5) {
             cartItems = [...cartItems, { id, name, price, stock: 1 }]
         } else {
-            alert("You can only add 5 robots")
+            Swal.fire({
+                icon: 'error',
+                title: 'Sorry...',
+                text: 'You can not add more than 5 Robots !',
+              })
         }
     }
     return cartItems

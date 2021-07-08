@@ -16,6 +16,7 @@
   "homepage": "https://bitbucket.org/morphosisteam/robot-market#readme",
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "react-bootstrap": "^1.6.1"
+    "react-bootstrap": "^1.6.1",
+    "sweetalert2": "^11.0.18"
   }
 }

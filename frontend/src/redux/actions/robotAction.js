@@ -1,4 +1,5 @@
 import * as types from "./actionTypes";
+import Swal from 'sweetalert2'
 
 const RobotLists = (robots) => ({
   type: types.ROBOTS_LIST,
@@ -16,7 +17,11 @@ export const getRobots = () => async (dispatch) => {
       dispatch(RobotLists(data))
     }
   } catch (error) {
-    alert("Oops something went wrong")
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+    })
     // send error message to sentry
   }
 }
