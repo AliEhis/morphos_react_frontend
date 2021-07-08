@@ -4,7 +4,7 @@ import { Card, ListGroup, Alert, Row, Col, Button } from 'react-bootstrap';
 import { formatCurrency } from '../utilityFunction'
 
 export const Cart = () => {
-    const cartItems = useSelector((state) => state.data.cartItems);
+    const { cartItems } = useSelector((state) => state.data);
 
     const calculateItem = (item) => {
         return Number(item.price) * Number(item.stock)
