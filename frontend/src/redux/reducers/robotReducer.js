@@ -33,8 +33,8 @@ export const robotReducer = (state = initialState, action) => {
     case UPDATE_STOCK_COUNT:
       return {
         ...state,
-        cartItems: updateCart(state.robots, state.cartItems, action.payload),
-        robots: updateStockCount(state.robots, action.payload)
+        cartItems: updateCart(state.robots, state.cartItems, action.payload), // update item stock
+        robots: updateStockCount(state.robots, action.payload) // update the stock on the robot list
       };
     default:
       return state;

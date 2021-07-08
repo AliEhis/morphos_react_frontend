@@ -4,6 +4,9 @@ export const formatCurrency = (amount) => {
     return amount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+// validate that item already exist in the cart
+// check if the cart items is more than 5
+// add new item to cart if it does not already exist
 export const verifyItemInCart = (cartItems, item) => {
     const { id, name, price } = item
     const itemExist = cartItems.find(cartItem => cartItem.id == id)
@@ -23,6 +26,7 @@ export const verifyItemInCart = (cartItems, item) => {
     return cartItems
 }
 
+// deplite the stock of the robot when user adds to cart
 export const reduceRobotStock = (robots, itemId) => {
     const robotExist = robots.find(robot => robot.id == itemId)
     if (robotExist) {
@@ -31,6 +35,8 @@ export const reduceRobotStock = (robots, itemId) => {
     return robots
 }
 
+// update the robot stock count when an item is either incremented or decremented
+// from the cart component
 export const updateStockCount = (robots, payload) => {
     const robotExist = robots.find(robot => robot.id == payload.itemId)
     if (payload.type == "inc" && robotExist) {
@@ -42,6 +48,7 @@ export const updateStockCount = (robots, payload) => {
     return robots
 }
 
+// update the cart item when the item is either increased or decreased
 export const updateCart = (robots, cartItems, payload) => {
     const itemExist = cartItems.find(cartItem => cartItem.id == payload.itemId)
     const robot = robots.find(robot => robot.id == payload.itemId)
