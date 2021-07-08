@@ -18,7 +18,7 @@ Please read the instructions and FAQ below before begin.
     - if user try to add more that 5 different robots then it should show an alert ✅
 - cart should display on the right side of the screen.
     - cart should contain list of selected robots, total amount and total price ✅
-    - user can increase or decrease the number of robots inside of cart section
+    - user can increase or decrease the number of robots inside of cart section ✅
     - total amount should be the total number of selected robots ✅
     - total price should be in Thai Baht formatted, `฿5,300.00` ✅
 
