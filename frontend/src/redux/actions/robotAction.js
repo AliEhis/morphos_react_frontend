@@ -33,3 +33,7 @@ export const addToCart = (item) => async (dispatch) => {
 export const reduceRobotStock = (id) => async (dispatch) => {
   dispatch({ type: types.REDUCE_ROBOT_STOCK, itemId: id })
 }
+
+export const updateStockCount = (payload) => async (dispatch) => {
+  dispatch({ type: types.UPDATE_STOCK_COUNT, ...payload })
+}

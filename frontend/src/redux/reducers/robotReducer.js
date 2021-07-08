@@ -1,5 +1,5 @@
-import { ROBOTS_LIST, LOAD_ROBOTS, ADD_ITEM_TO_CART, REDUCE_ROBOT_STOCK } from "../actions/actionTypes";
-import { verifyItemInCart, reduceRobotStock } from '../../utilityFunction'
+import { ROBOTS_LIST, LOAD_ROBOTS, ADD_ITEM_TO_CART, REDUCE_ROBOT_STOCK, UPDATE_STOCK_COUNT } from "../actions/actionTypes";
+import { verifyItemInCart, reduceRobotStock, updateStockCount, updateCart } from '../../utilityFunction'
 
 const initialState = {
   isLoading: false,
@@ -29,6 +29,12 @@ export const robotReducer = (state = initialState, action) => {
       return {
         ...state,
         robots: reduceRobotStock(state.robots, action.itemId)
+      };
+    case UPDATE_STOCK_COUNT:
+      return {
+        ...state,
+        cartItems: updateCart(state.robots, state.cartItems, action.payload),
+        robots: updateStockCount(state.robots, action.payload)
       };
     default:
       return state;

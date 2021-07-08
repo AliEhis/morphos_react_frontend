@@ -30,3 +30,27 @@ export const reduceRobotStock = (robots, itemId) => {
     }
     return robots
 }
+
+export const updateStockCount = (robots, payload) => {
+    const robotExist = robots.find(robot => robot.id == payload.itemId)
+    if (payload.type == "inc" && robotExist) {
+        robotExist.stock = robotExist.stock == 0 ? 0 : robotExist.stock - 1
+    }
+    if (payload.type == "des" && robotExist) {
+        robotExist.stock = robotExist.stock + 1
+    }
+    return robots
+}
+
+export const updateCart = (robots, cartItems, payload) => {
+    const itemExist = cartItems.find(cartItem => cartItem.id == payload.itemId)
+    const robot = robots.find(robot => robot.id == payload.itemId)
+    if (itemExist) {
+        if (payload.type == "inc") {
+            itemExist.stock = robot.stock > 0 ? itemExist.stock + 1 : itemExist.stock
+        } else {
+            itemExist.stock = itemExist.stock > 0 ? itemExist.stock - 1 : 1
+        }
+    }
+    return cartItems
+}
