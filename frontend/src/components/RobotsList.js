@@ -39,7 +39,7 @@ export const RobotsList = () => {
             {robots && robots.map((robot, index) => {
                 return (
                     <Col xs={12} sm={6} md={4} lg={3} key={index}>
-                        <Card className="mb-3">
+                        <Card className="mb-3 cardElevate">
                             <Card.Img variant="top" src={robot.image} />
                             <Card.Body>
                                 <Card.Title>

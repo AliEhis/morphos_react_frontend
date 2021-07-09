@@ -19,6 +19,7 @@ function App() {
             <Filter />
           </Col>
           <Col xs={12} sm={12} md={12} lg={7}>
+             {/* Robots grid design*/}
             <RobotsList />
           </Col>
           <Col xs={12} sm={12} md={12} lg={3}>
