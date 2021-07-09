@@ -12,7 +12,7 @@ app.get('/api/robots', (req, res) => {
   let robotList = [];
 
   for (let i = 0; i < MAX_ROBOTS; i++) {
-    const id = i + 1;
+    const id = i + 1; // I added this line to uniquely identify a robot
     const name = faker.name.firstName() + ' ' + faker.name.lastName();
     const image = `https://robohash.org/${name}.png?size=120x120`;
     const price = faker.finance.amount();
