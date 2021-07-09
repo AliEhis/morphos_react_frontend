@@ -61,3 +61,11 @@ export const updateCart = (robots, cartItems, payload) => {
     }
     return cartItems
 }
+
+export const filterRobots = (allRobots, material) => {
+    if (material == "all") {
+        return allRobots
+    } else {
+        return allRobots.filter(robot => robot.material == material)
+    }
+}

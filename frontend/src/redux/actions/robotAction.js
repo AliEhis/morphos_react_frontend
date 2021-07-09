@@ -37,3 +37,7 @@ export const reduceRobotStock = (id) => async (dispatch) => {
 export const updateStockCount = (payload) => async (dispatch) => {
   dispatch({ type: types.UPDATE_STOCK_COUNT, ...payload })
 }
+
+export const filterRobots = (material) => async (dispatch) => {
+  dispatch({ type: types.FILTER_ROBOTS, material })
+}

@@ -1,9 +1,10 @@
-import { ROBOTS_LIST, LOAD_ROBOTS, ADD_ITEM_TO_CART, REDUCE_ROBOT_STOCK, UPDATE_STOCK_COUNT } from "../actions/actionTypes";
-import { verifyItemInCart, reduceRobotStock, updateStockCount, updateCart } from '../../utilityFunction'
+import { ROBOTS_LIST, LOAD_ROBOTS, ADD_ITEM_TO_CART, REDUCE_ROBOT_STOCK, UPDATE_STOCK_COUNT, FILTER_ROBOTS } from "../actions/actionTypes";
+import { verifyItemInCart, reduceRobotStock, updateStockCount, updateCart, filterRobots } from '../../utilityFunction'
 
 const initialState = {
   isLoading: false,
   robots: [],
+  allRobots: [],
   cartItems: []
 };
 
@@ -18,6 +19,7 @@ export const robotReducer = (state = initialState, action) => {
       return {
         ...state,
         robots: action.payload,
+        allRobots: action.payload,
         isLoading: false,
       };
     case ADD_ITEM_TO_CART:
@@ -28,13 +30,18 @@ export const robotReducer = (state = initialState, action) => {
     case REDUCE_ROBOT_STOCK:
       return {
         ...state,
-        robots: reduceRobotStock(state.robots, action.itemId)
+        robots: reduceRobotStock(state.allRobots, action.itemId)
       };
     case UPDATE_STOCK_COUNT:
       return {
         ...state,
-        cartItems: updateCart(state.robots, state.cartItems, action.payload), // update item stock
-        robots: updateStockCount(state.robots, action.payload) // update the stock on the robot list
+        cartItems: updateCart(state.allRobots, state.cartItems, action.payload), // update item stock
+        robots: updateStockCount(state.allRobots, action.payload) // update the stock on the robot list
+      };
+    case FILTER_ROBOTS:
+      return {
+        ...state,
+        robots: filterRobots(state.allRobots, action.material), // filter robots list
       };
     default:
       return state;
