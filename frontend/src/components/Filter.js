@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Form } from 'react-bootstrap';
 import { filterRobots } from '../redux/actions/robotAction';
@@ -6,19 +6,14 @@ import { filterRobots } from '../redux/actions/robotAction';
 export const Filter = () => {
     const dispatch = useDispatch()
     const { allRobots } = useSelector((state) => state.data);
-
+    //Get unique materials from the array
     const materials = [...new Set(allRobots.map(item => item.material))];
-
     const [material, setMaterial] = useState("all");
 
     const filterMaterial = (material) => {
         setMaterial(material)
         dispatch(filterRobots(material))
     }
-
-    useEffect(() => {
-        
-    }, []);
 
     return (
         <Card

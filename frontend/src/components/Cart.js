@@ -22,7 +22,7 @@ export const Cart = () => {
     }
 
     const updateStock = (itemId, type) => {
-        dispatch(updateStockCount({payload: { itemId, type }}))
+        dispatch(updateStockCount({ payload: { itemId, type } }))
     }
 
     useEffect(() => {
@@ -47,7 +47,7 @@ export const Cart = () => {
                                             <Row className="justify-content-md-around align-items-center">
                                                 <Col>
                                                     <p className="mb-0">
-                                                        { item.name } <br></br>
+                                                        {item.name} <br></br>
                                                         <small>{item.stock} x &#3647;{item.price}</small>
                                                     </p>
                                                     <Button variant="secondary" size="sm" className="btnspacing mr-3" disabled={item.stock == 1} onClick={() => updateStock(item.id, 'des')}>
