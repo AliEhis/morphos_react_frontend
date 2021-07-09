@@ -1,5 +1,5 @@
 import { ROBOTS_LIST, LOAD_ROBOTS, ADD_ITEM_TO_CART, REDUCE_ROBOT_STOCK, UPDATE_STOCK_COUNT, FILTER_ROBOTS } from "../actions/actionTypes";
-import { verifyItemInCart, reduceRobotStock, updateStockCount, updateCart, filterRobots } from '../../utilityFunction'
+import { verifyItemInCart, reduceRobotStock, updateStockCount, updateCart, filterRobots } from '../../functions'
 
 const initialState = {
   isLoading: false,

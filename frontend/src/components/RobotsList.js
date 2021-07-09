@@ -7,7 +7,7 @@ import {
     Card,
     Button
 } from 'react-bootstrap';
-import { formatCurrency } from '../utilityFunction'
+import { formatCurrency } from '../functions'
 
 export const RobotsList = () => {
     let dispatch = useDispatch();

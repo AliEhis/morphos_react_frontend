@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, ListGroup, Alert, Row, Col, Button } from 'react-bootstrap';
-import { formatCurrency } from '../utilityFunction';
+import { formatCurrency } from '../functions';
 import { updateStockCount } from '../redux/actions/robotAction';
 
 export const Cart = () => {
